@@ -5,11 +5,16 @@
 <body class="container">
 
 <h1 th:text="${title}">Default Title</h1>
+
 <nav th:replace="fragments :: navigation"></nav>
-<a href ="/menu/add">Add Menu</a>
-<p th:unless="${menus} and ${menus.size()}">no menus :(</p>
-<ul th:each="menu : ${menus}">
-    <li><p><a th:href="'/menu/view/' + ${menu.id}" th:text="${menu.name}"/></p></li>
+
+<ul>
+    <li th:each = "menu : ${menus}">
+        <a th:href = "'menu/view/' + ${menu.id}" th:text="${menu.name}"></a>
+    </li>
 </ul>
+
+<a href="/menu/add">Add Menu</a>
+
 </body>
 </html>
